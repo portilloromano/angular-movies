@@ -1,0 +1,15 @@
+<div class="header">
+    <div class="brand">
+        <a [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">
+            MI MARCA
+        </a>
+    </div>
+    <div class="nav">
+        <a [routerLink]="['/movies/popular']" routerLinkActive="router-link-active">
+            Popular
+        </a>
+        <a [routerLink]="['/movies/upcoming']" routerLinkActive="router-link-active">
+            Upcoming
+        </a>
+    </div>
+</div>
