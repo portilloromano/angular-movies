@@ -1,8 +1,27 @@
-<div class="peliculas">
-    <div class="pelicula" *ngFor="let movie of movies">
-        <a routerLink="/movie/{{movie.id}}" routerLinkActive="router-link-active">
-            <span>{{movie.title}}</span>
-            <img src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="">
-        </a>
-    </div>
+<div class="movies">
+  <div *ngFor="let movie of movies">
+    <a class="movie" routerLink="/movie/{{movie.id}}" routerLinkActive="router-link-active">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <span>{{movie.title}}</span>
+          <img src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" alt="">
+        </div>
+        <div class="flip-card-back">
+          <span>{{movie.title}}</span>
+          <p>{{movie.overview}}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="paginator">
+  <div class="previous">
+    <button (click)="getPrevious()">&lt;</button>
+  </div>
+  <div class="page">
+    {{page}}
+  </div>
+  <div class="next">
+      <button (click)="getNext()">&gt;</button>
+  </div>
 </div>

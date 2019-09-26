@@ -10,8 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MoviesComponent implements OnInit, OnDestroy {
   public movies: object[];
-  public page: number = 0;
+  public page: number = 1;
   public paramSubcription: Subscription;
+  public category: string;
 
   constructor(
     public movieService: MoviesService,
@@ -20,14 +21,23 @@ export class MoviesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.paramSubcription = this.route.paramMap.subscribe(paramsMap => {
-      this.getMovies(paramsMap['params']['category'])
+      this.category = paramsMap['params']['category']
+      this.getMovies(this.category, String(this.page))
     })
   }
-  getMovies(category: string) {
-    this.movieService.getMovies(category, 'es-ES', '1').subscribe(
+  getMovies(category: string, page: string) {
+    this.movieService.getMovies(category, 'es-ES', page).subscribe(
       res => this.movies = res['results'],
       error => console.log(error)
     )
+  }
+  getNext() {
+    this.page++;
+    this.getMovies(this.category, String(this.page));
+  }
+  getPrevious() {
+    this.page--;
+    this.getMovies(this.category, String(this.page));
   }
   ngOnDestroy() {
     this.paramSubcription.unsubscribe()
