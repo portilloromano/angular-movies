@@ -20,13 +20,13 @@ export class MoviesComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.paramSubcription = this.route.paramMap.subscribe(paramsMap => {
-      this.category = paramsMap['params']['category']
+    this.paramSubcription = this.route.params.subscribe(params => {
+      this.category = params['category'];
       this.getMovies(this.category, String(this.page))
     })
   }
   getMovies(category: string, page: string) {
-    this.movieService.getMovies(category, 'es-ES', page).subscribe(
+    this.movieService.getMoviesByCategory(category, page).subscribe(
       res => this.movies = res['results'],
       error => console.log(error)
     )

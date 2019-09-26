@@ -10,6 +10,7 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { HomeComponent } from './components/home/home.component';
 import { from } from 'rxjs';
+import { CreditsComponent } from './components/credits/credits.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { from } from 'rxjs';
     FooterComponent,
     MoviesComponent,
     MovieDetailComponent,
-    HomeComponent
+    HomeComponent,
+    CreditsComponent
   ],
   imports: [
     BrowserModule,
