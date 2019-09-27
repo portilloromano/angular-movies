@@ -1,6 +1,7 @@
-<div class="movie-details" [ngStyle]="{'background': 'url(https://image.tmdb.org/t/p/w500/'+movie.backdrop_path+')'}">
+<div class="movie-details" *ngIf="movie"
+[ngStyle]="{'--back-image': 'url(https://image.tmdb.org/t/p/w500/'+movie.backdrop_path+')'}">
     <div class="content">
-        <img src="https://image.tmdb.org/t/p/w400/{{movie.poster_path}}" alt="">
+        <img src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" alt="">
         <h1>{{movie.original_title}} ({{movie.release_date | date: 'yyyy'}})</h1>
         <p>{{movie.overview}}</p>
     </div>

@@ -19,10 +19,9 @@ export class CreditsComponent implements OnInit {
   ngOnInit() {
     this.id=this.route.snapshot.paramMap.get('id');
     this.creditsService.getCreditsById(this.id).subscribe(
-      res => this.credits = res['results'],
+      res => this.credits = res['cast'],
       error => console.log(error)
     )
-    console.log('Credits',this.id, this.credits);
   }
 
 }
