@@ -1,15 +1,34 @@
 <div class="header">
-    <div class="brand">
-        <a [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">
-            MI MARCA
-        </a>
-    </div>
-    <div class="nav">
-        <a [routerLink]="['/movies/popular']" routerLinkActive="router-link-active">
-            Popular
-        </a>
-        <a [routerLink]="['/movies/upcoming']" routerLinkActive="router-link-active">
-            Upcoming
-        </a>
-    </div>
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <a class="navbar-brand" [routerLink]="['/']" (click)="ChangeCategory('Category')">AngularMovies</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{category}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" [routerLink]="['/movies/now_playing']"
+                            (click)="ChangeCategory('Now Playing')">Now Playing</a>
+                        <a class="dropdown-item" [routerLink]="['/movies/popular']"
+                            (click)="ChangeCategory('Popular')">Popular</a>
+                        <a class="dropdown-item" [routerLink]="['/movies/top_rated']"
+                            (click)="ChangeCategory('Top Rated')">Top Rated</a>
+                        <a class="dropdown-item" [routerLink]="['/movies/upcoming']"
+                            (click)="ChangeCategory('Upcoming')">Upcoming</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
 </div>

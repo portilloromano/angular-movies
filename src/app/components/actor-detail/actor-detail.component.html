@@ -1,0 +1,19 @@
+<div class="actor-detail">
+    <ng-container *ngIf="actor.profile_path; then found; else notFound"></ng-container>
+    <div class="content">
+        <ng-template #found>
+            <img src="https://image.tmdb.org/t/p/w300{{actor.profile_path}}" alt="">
+            <div class="description">
+                <h1>{{actor.name}}</h1>
+                {{actor.birthday}}
+                <span *ngIf="actor.deathday">{{actor.deathday}}</span>
+                {{actor.place_of_birth}}
+                {{actor.biography}}
+            </div>
+        </ng-template>
+        <ng-template #notFound>
+            <img src="assets/img/no-image-available.png" alt="">
+        </ng-template>
+    </div>
+    <app-movies-by-actor></app-movies-by-actor>
+</div>

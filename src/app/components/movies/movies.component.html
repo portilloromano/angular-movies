@@ -1,10 +1,16 @@
-<div class="movies">
+<div class="movies" *ngIf="movies">
   <div *ngFor="let movie of movies">
-    <a class="movie" routerLink="/movie/{{movie.id}}" routerLinkActive="router-link-active">
+    <a class="movie" routerLink="/movie/{{movie.id}}">
       <div class="flip-card-inner">
         <div class="flip-card-front">
+          <ng-container *ngIf="movie.poster_path; then found; else notFound"></ng-container>
           <span>{{movie.title}}</span>
-          <img src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" alt="">
+          <ng-template #found>
+            <img src="https://image.tmdb.org/t/p/w200{{movie.poster_path}}" alt="">
+          </ng-template>
+          <ng-template #notFound>
+            <img src="assets/img/no-image-available.png" alt="">
+          </ng-template>
         </div>
         <div class="flip-card-back">
           <span>{{movie.title}}</span>
@@ -22,6 +28,6 @@
     {{page}}
   </div>
   <div class="next">
-      <button (click)="getNext()">&gt;</button>
+    <button (click)="getNext()">&gt;</button>
   </div>
 </div>

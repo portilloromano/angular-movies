@@ -1,0 +1,21 @@
+<div class="movies-by-actor" *ngIf="movies">
+  <hr>
+  <h1>MOVIES</h1>
+  <div class="content">
+    <div *ngFor="let movie of movies">
+      <a class="movie" routerLink="/movie/{{movie.id}}" routerLinkActive="router-link-active">
+        <ng-container *ngIf="movie.poster_path; then found; else notFound"></ng-container>
+        <ng-template #found>
+          <img src="https://image.tmdb.org/t/p/w200{{movie.poster_path}}" alt="">
+        </ng-template>
+        <ng-template #notFound>
+          <img src="assets/img/no-image-available.png" alt="">
+        </ng-template>
+        <div class="description">
+          <span>{{movie.title}}</span>
+          <span>By: {{movie.character}}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

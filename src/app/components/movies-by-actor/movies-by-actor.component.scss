@@ -1,0 +1,32 @@
+.movies-by-actor {
+  text-align: center;
+  hr {
+    border-top: 2px solid rgba(168, 168, 168, 0.5);
+    margin: 2em;
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1em;
+    .movie {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      padding: 1em;
+      margin: 1em;
+      height: 395px;
+      width: 235px;
+      color: #000;
+      text-decoration: none;
+      border-radius: 0.5em;
+      border: 2px solid rgba(168, 168, 168, 0.5);
+      .description {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}

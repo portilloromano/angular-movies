@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CreditsService } from './credits.service';
+import { ActorsService } from './actors.service';
 
-describe('CreditsService', () => {
+describe('ActorsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: CreditsService = TestBed.get(CreditsService);
+    const service: ActorsService = TestBed.get(ActorsService);
     expect(service).toBeTruthy();
   });
 });

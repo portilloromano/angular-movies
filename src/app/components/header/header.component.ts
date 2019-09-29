@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  public category: string = 'Category';
 
-  constructor() { }
+  constructor(
+    public route: ActivatedRoute
+  ) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  ChangeCategory(category:string){
+    this.category = category;
   }
-
 }

@@ -1,7 +1,16 @@
-.movie-details {
+.movie-detail {
   position: relative;
+  .content {
+    margin: 1em;
+    display: flex;
+    .description {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1em;
+    }
+  }
 }
-.movie-details::before {
+.movie-detail::before {
   content: "";
   position: absolute;
   width: 100%;

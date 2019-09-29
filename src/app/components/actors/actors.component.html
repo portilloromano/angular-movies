@@ -1,0 +1,21 @@
+<div class="actors" *ngIf="actors">
+  <hr>
+  <h1>CAST</h1>
+  <div class="content">
+    <div *ngFor="let actor of actors">
+      <a class="actor" routerLink="/actor/{{actor.id}}">
+        <ng-container *ngIf="actor.profile_path; then found; else notFound"></ng-container>
+        <ng-template #found>
+          <img src="https://image.tmdb.org/t/p/w200{{actor.profile_path}}" alt="">
+        </ng-template>
+        <ng-template #notFound>
+          <img src="assets/img/no-image-available.png" alt="">
+        </ng-template>
+        <div class="descriptions">
+          <span> {{actor.name}}</span>
+          <span>By: {{actor.character}}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

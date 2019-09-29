@@ -15,7 +15,7 @@ export class MoviesComponent implements OnInit, OnDestroy {
   public category: string;
 
   constructor(
-    public movieService: MoviesService,
+    public moviesService: MoviesService,
     public route: ActivatedRoute
   ) { }
 
@@ -23,13 +23,13 @@ export class MoviesComponent implements OnInit, OnDestroy {
     this.paramSubcription = this.route.params.subscribe(params => {
       this.category = params['category'];
       this.getMovies(this.category, String(this.page))
-    })
+    });
   }
   getMovies(category: string, page: string) {
-    this.movieService.getMoviesByCategory(category, page).subscribe(
+    this.moviesService.getMoviesByCategory(category, page).subscribe(
       res => this.movies = res['results'],
       error => console.log(error)
-    )
+    );
   }
   getNext() {
     this.page++;
@@ -40,6 +40,6 @@ export class MoviesComponent implements OnInit, OnDestroy {
     this.getMovies(this.category, String(this.page));
   }
   ngOnDestroy() {
-    this.paramSubcription.unsubscribe()
+    this.paramSubcription.unsubscribe();
   }
 }

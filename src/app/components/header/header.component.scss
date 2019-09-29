@@ -1,14 +1,7 @@
 .header {
   background-color: rgb(11, 7, 70);
-  display: flex;
-  justify-content: space-between;
-  height: 4em;
-  align-items: center;
-  padding: 1em;
-  a {
-    text-decoration: none;
-    color: #fff;
-    padding: 0.5em;
+  .dropdown-item{
+    color:rgb(11, 7, 70);
   }
   a:hover,
   .router-link-active {
