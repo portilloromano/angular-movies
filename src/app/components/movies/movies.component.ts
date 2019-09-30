@@ -9,14 +9,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit, OnDestroy {
-  public movies: object[];
-  public page: number = 1;
-  public paramSubcription: Subscription;
-  public category: string;
+  private movies: object[];
+  private page: number = 1;
+  private paramSubcription: Subscription;
+  private category: string;
 
   constructor(
-    public moviesService: MoviesService,
-    public route: ActivatedRoute
+    private moviesService: MoviesService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {

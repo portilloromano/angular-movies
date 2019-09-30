@@ -8,12 +8,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./actors.component.scss']
 })
 export class ActorsComponent implements OnInit {
-  public id: string;
-  public actors: object[];
+  private id: string;
+  private actors: object[];
 
   constructor(
-    public ActorsService: ActorsService,
-    public route: ActivatedRoute
+    private ActorsService: ActorsService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {

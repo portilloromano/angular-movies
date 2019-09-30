@@ -1,4 +1,4 @@
-<div class="actor-detail">
+<div class="actor-detail" *ngIf="actor">
     <ng-container *ngIf="actor.profile_path; then found; else notFound"></ng-container>
     <div class="content">
         <ng-template #found>

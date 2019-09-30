@@ -9,28 +9,30 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent implements OnInit {
-  public id: string;
-  public movie: object;
-  public trailers: object[];
-  public firstTrailer: string;
-
+  private id: string;
+  private movie: object;
+  private trailer: string;
+  private backdrop_path: any;
 
   constructor(
-    public movieService: MoviesService,
-    public route: ActivatedRoute,
-    public sanitizer: DomSanitizer
+    private movieService: MoviesService,
+    private route: ActivatedRoute,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.movieService.getMovieById(this.id).subscribe(
-      res => this.movie = res,
-      error => console.log(error)
-    );
+      res => {
+        this.movie = res;
+        this.backdrop_path = (String('https://image.tmdb.org/t/p/original' + this.movie.backdrop_path))
+      },
+      error => console.log(error));
     this.movieService.getVideoByMovieId(this.id).subscribe(
-      res => this.trailers = res['results'],
-      error => console.log(error),
-      () => console.log(this.id, this.trailers.slice(0,1).key)
+      (res: any) => {
+        this.trailer = "https://www.youtube.com/embed/" + res['results'][0].key;
+      },
+      error => console.log(error)
     );
   }
 }

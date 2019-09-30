@@ -14,6 +14,8 @@ import { ActorsComponent } from './components/actors/actors.component';
 import { ActorDetailComponent } from './components/actor-detail/actor-detail.component';
 import { MoviesByActorComponent } from './components/movies-by-actor/movies-by-actor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     ActorsComponent,
     ActorDetailComponent,
-    MoviesByActorComponent
+    MoviesByActorComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CarouselModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

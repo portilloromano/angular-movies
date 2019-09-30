@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MoviesService {
-  constructor(public HttpClient: HttpClient) { }
+  constructor(private HttpClient: HttpClient) { }
 
   getMoviesByCategory(category: string, page: string, language: string = 'en-EN') {
     return this.HttpClient.get(`https://api.themoviedb.org/3/movie/${category}?api_key=7d9842d7377abc06a33ef03d1ee51800&language=${language}&page=${page}`);

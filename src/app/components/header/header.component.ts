@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +7,28 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public category: string = 'Category';
+  private category: string = 'Category';
 
   constructor(
-    public route: ActivatedRoute
+    private route: ActivatedRoute
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    // this.route.paramMap.subscribe(params => {
+    //   console.log(params);
+      
+    //   this.category = params.get("category")
+    // })
+
+
+    // console.log(this.route);
+    
+    this.route.params.subscribe( (params: any) => {
+      this.category = params['category'] || 'Category';
+
+    })
+
+  }
 
   ChangeCategory(category:string){
     this.category = category;

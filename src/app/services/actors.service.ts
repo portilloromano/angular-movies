@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ActorsService {
-  constructor(public HttpClient: HttpClient) { }
+  constructor(private HttpClient: HttpClient) { }
 
   getActorsByMovieId(id: string) {
     return this.HttpClient.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=7d9842d7377abc06a33ef03d1ee51800`);
