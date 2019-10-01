@@ -1,6 +1,10 @@
-<carousel *ngIf="slides" [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="false" [interval]="false" [indicatorsByChunk]="true">
+<carousel *ngIf="slides" 
+    [itemsPerSlide]="itemsPerSlide"
+    [singleSlideOffset]="false" 
+    [interval]="false" 
+    [indicatorsByChunk]="true">
     <slide *ngFor="let slide of slides; let index=index">
-        <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+        <img [src]="slide.image" alt="image slide" style="display: block; width: 200px;">
         <div class="carousel-caption">
             <h4>Slide {{index}}</h4>
         </div>

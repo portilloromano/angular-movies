@@ -1,0 +1,25 @@
+<div class="movies-search" *ngIf="movies">
+    <div *ngFor="let movie of movies">
+        <a class="movie" routerLink="/movie/{{movie.id}}">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <ng-container *ngIf="movie.poster_path; then found; else notFound"></ng-container>
+                    <span>{{movie.title}}</span>
+                    <ng-template #found>
+                        <img src="https://image.tmdb.org/t/p/w200{{movie.poster_path}}" alt="">
+                    </ng-template>
+                    <ng-template #notFound>
+                        <img src="assets/img/no-image-available.png" alt="">
+                    </ng-template>
+                </div>
+                <div class="flip-card-back">
+                    <span>{{movie.title}}</span>
+                    <p>{{movie.overview}}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<pagination [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [maxSize]="maxSize"
+    (pageChanged)="pageChanged($event)">
+</pagination>

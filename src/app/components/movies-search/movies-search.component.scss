@@ -1,4 +1,4 @@
-.movies {
+.movies-search {
   display: flex;
   flex-wrap: wrap;
   margin: 1em;
@@ -62,7 +62,7 @@
     transform: rotateY(180deg);
   }
 }
-pagination{
+pagination {
   display: flex;
   flex-direction: row;
   justify-content: center;

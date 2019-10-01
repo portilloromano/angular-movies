@@ -8,29 +8,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   private category: string = 'Category';
+  private search: string = '';
+  private inputSearch:string;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
-  ngOnInit() { 
-    // this.route.paramMap.subscribe(params => {
-    //   console.log(params);
-      
-    //   this.category = params.get("category")
-    // })
-
-
-    // console.log(this.route);
-    
-    this.route.params.subscribe( (params: any) => {
+  ngOnInit() {
+    this.route.params.subscribe((params: any) => {
       this.category = params['category'] || 'Category';
-
     })
-
   }
 
-  ChangeCategory(category:string){
+  ChangeCategory(category: string) {
     this.category = category;
+  }
+  queryExecute() {
+    console.log(this.inputSearch);
+    this.search = encodeURI('/movies-search/toy story');
+    console.log(this.search);
+    this.router.navigateByUrl(this.search);
   }
 }

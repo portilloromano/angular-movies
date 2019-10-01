@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
 
+import { MoviesService } from './services/movies.service'
+import { ActorsService } from './services/actors.service'
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -17,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { MoviesSearchComponent } from './components/movies-search/movies-search.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     ActorsComponent,
     ActorDetailComponent,
     MoviesByActorComponent,
-    CarouselComponent
+    CarouselComponent,
+    MoviesSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +41,12 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
-    PaginationModule.forRoot(),
+    PaginationModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    MoviesService,
+    ActorsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

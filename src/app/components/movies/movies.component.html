@@ -20,15 +20,9 @@
     </a>
   </div>
 </div>
-<pagination [totalItems]="30"></pagination>
-<div class="paginator">
-  <div class="previous">
-    <button (click)="getPrevious()">&lt;</button>
-  </div>
-  <div class="page">
-    {{page}}
-  </div>
-  <div class="next">
-    <button (click)="getNext()">&gt;</button>
-  </div>
-</div>
+<pagination 
+  [totalItems]="totalItems" 
+  [itemsPerPage]="itemsPerPage" 
+  [maxSize]="maxSize" 
+  (pageChanged)="pageChanged($event)">
+</pagination>

@@ -14,6 +14,9 @@ export class MoviesComponent implements OnInit, OnDestroy {
   private page: number = 1;
   private paramSubcription: Subscription;
   private category: string;
+  private totalItems: number;
+  private maxSize: number = 5;
+  private itemsPerPage: number = 20;
 
   constructor(
     private moviesService: MoviesService,
@@ -28,19 +31,19 @@ export class MoviesComponent implements OnInit, OnDestroy {
   }
   getMovies(category: string, page: string) {
     this.moviesService.getMoviesByCategory(category, page).subscribe(
-      res => this.movies = res['results'],
+      res => {
+        this.movies = res['results'];
+        this.totalItems = Number(res['total_results']);
+      },
       error => console.log(error)
     );
   }
-  getNext() {
-    this.page++;
-    this.getMovies(this.category, String(this.page));
-  }
-  getPrevious() {
-    this.page--;
-    this.getMovies(this.category, String(this.page));
-  }
+  
   ngOnDestroy() {
     this.paramSubcription.unsubscribe();
+  }
+  pageChanged(event: any): void {
+    this.page = event.page;
+    this.getMovies(this.category, String(this.page));
   }
 }

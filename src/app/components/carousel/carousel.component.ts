@@ -27,11 +27,9 @@ export class CarouselComponent implements OnInit {
   }
 
   loadCarouselImages() {
-    this.movies.map(movie => {
+    this.slides = this.movies.map(movie => {
       let imageUrl: string = 'https://image.tmdb.org/t/p/w200' + movie.poster_path;
-      console.log(imageUrl);
-      // this.slides.push({ image: imageUrl });
-      console.log(this.slides);
+      return ({ image: imageUrl });
     });
   }
 }
