@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies.service';
+import { Movie } from '../../models/Movie.model';
 
 @Component({
   selector: 'app-carousel',
@@ -8,7 +9,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class CarouselComponent implements OnInit {
   private itemsPerSlide: number = 3;
-  private movies: object[];
+  private movies: Movie[];
   private slides: object[];
 
   constructor(
@@ -27,7 +28,9 @@ export class CarouselComponent implements OnInit {
 
   loadCarouselImages() {
     this.movies.map(movie => {
-      this.slides.push({image: 'https://image.tmdb.org/t/p/w200'+movie.poster_path});
+      let imageUrl: string = 'https://image.tmdb.org/t/p/w200' + movie.poster_path;
+      console.log(imageUrl);
+      // this.slides.push({ image: imageUrl });
       console.log(this.slides);
     });
   }

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MoviesService } from 'src/app/services/movies.service';
 import { ActivatedRoute } from '@angular/router';
+import { Movie } from '../../models/Movie.model';
 
 @Component({
   selector: 'app-movies',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit, OnDestroy {
-  private movies: object[];
+  private movies: Movie[];
   private page: number = 1;
   private paramSubcription: Subscription;
   private category: string;

@@ -16,6 +16,7 @@ import { MoviesByActorComponent } from './components/movies-by-actor/movies-by-a
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
+    PaginationModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

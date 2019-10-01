@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies.service';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MovieDetail } from '../../models/MovieDetail.model';
 
 @Component({
   selector: 'app-movie-detail',
@@ -10,7 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class MovieDetailComponent implements OnInit {
   private id: string;
-  private movie: object;
+  private movie: any;
   private trailer: string;
   private backdrop_path: any;
 
@@ -23,14 +24,14 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.movieService.getMovieById(this.id).subscribe(
-      res => {
+      res=> {
         this.movie = res;
-        this.backdrop_path = (String('https://image.tmdb.org/t/p/original' + this.movie.backdrop_path))
+        this.backdrop_path = 'https://image.tmdb.org/t/p/original' + this.movie.backdrop_path
       },
       error => console.log(error));
     this.movieService.getVideoByMovieId(this.id).subscribe(
-      (res: any) => {
-        this.trailer = "https://www.youtube.com/embed/" + res['results'][0].key;
+      res => {
+        this.trailer = 'https://www.youtube.com/embed/' + res['results'][0].key;
       },
       error => console.log(error)
     );
