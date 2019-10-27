@@ -25,10 +25,15 @@ export class HeaderComponent implements OnInit {
   ChangeCategory(category: string) {
     this.category = category;
   }
+
+  onKeydown(event) {
+    if (event.key === "Enter") {
+      this.queryExecute();
+    }
+  }
+
   queryExecute() {
-    console.log(this.inputSearch);
-    this.search = encodeURI('/movies-search/toy story');
-    console.log(this.search);
-    this.router.navigateByUrl(this.search);
+    this.search = encodeURI(this.inputSearch);
+    this.router.navigate([`/movies-search/${this.search}`]);
   }
 }

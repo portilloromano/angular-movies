@@ -1,4 +1,5 @@
 <div class="movies" *ngIf="movies">
+  <div id="top"></div>
   <div *ngFor="let movie of movies">
     <a class="movie" routerLink="/movie/{{movie.id}}">
       <div class="flip-card-inner">
@@ -24,5 +25,6 @@
   [totalItems]="totalItems" 
   [itemsPerPage]="itemsPerPage" 
   [maxSize]="maxSize" 
+  [(ngModel)]="currentPage"
   (pageChanged)="pageChanged($event)">
 </pagination>

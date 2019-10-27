@@ -11,7 +11,7 @@ import { Movie } from '../../models/Movie.model';
 })
 export class MoviesComponent implements OnInit, OnDestroy {
   private movies: Movie[];
-  private page: number = 1;
+  private currentPage: number = 1;
   private paramSubcription: Subscription;
   private category: string;
   private totalItems: number;
@@ -26,11 +26,12 @@ export class MoviesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.paramSubcription = this.route.params.subscribe(params => {
       this.category = params['category'];
-      this.getMovies(this.category, String(this.page))
+      this.currentPage = 1;
+      this.getMovies(this.category, String(this.currentPage));
     });
   }
-  getMovies(category: string, page: string) {
-    this.moviesService.getMoviesByCategory(category, page).subscribe(
+  getMovies(category: string, currentPage: string) {
+    this.moviesService.getMoviesByCategory(category, currentPage).subscribe(
       res => {
         this.movies = res['results'];
         this.totalItems = Number(res['total_results']);
@@ -42,8 +43,10 @@ export class MoviesComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.paramSubcription.unsubscribe();
   }
+  
   pageChanged(event: any): void {
-    this.page = event.page;
-    this.getMovies(this.category, String(this.page));
+    this.currentPage = event.page;
+    this.getMovies(this.category, String(this.currentPage));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

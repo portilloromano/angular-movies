@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 
 import { MoviesService } from './services/movies.service'
 import { ActorsService } from './services/actors.service'
@@ -40,6 +41,7 @@ import { MoviesSearchComponent } from './components/movies-search/movies-search.
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
     CarouselModule.forRoot(),
     PaginationModule.forRoot()
   ],

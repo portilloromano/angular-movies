@@ -20,6 +20,10 @@
         </a>
     </div>
 </div>
-<pagination [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [maxSize]="maxSize"
-    (pageChanged)="pageChanged($event)">
+<pagination 
+  [totalItems]="totalItems" 
+  [itemsPerPage]="itemsPerPage" 
+  [maxSize]="maxSize" 
+  [(ngModel)]="currentPage"
+  (pageChanged)="pageChanged($event)">
 </pagination>

@@ -24,7 +24,7 @@
         </li>
       </ul>
       <div class="form-inline my-2 my-lg-0">
-        <input name="inputSearch" ngModel class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input name="inputSearch" [(ngModel)]="inputSearch" (keydown)="onKeydown($event)" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" (click)="queryExecute()">Search</button>
       </div>
     </div>
